@@ -5,19 +5,12 @@ $sudo apt-get install git
 ##Clonar el repositorio de devstack
 $git clone https://git.openstack.org/openstack-dev/devstack
 
-##Hacer una configuracion minima para la instalacion
+##Ejecutar el script de instalación
 $cd devstack
-#Crear un archivo que se llame local.conf de texto con gedit o vim que contenga lo siguiente
-
-  [[local|localrc]]
-  ADMIN_PASSWORD=1
-  DATABASE_PASSWORD=$ADMIN_PASSWORD
-  RABBIT_PASSWORD=$ADMIN_PASSWORD
-  SERVICE_PASSWORD=$ADMIN_PASSWORD
-  FIXED_RANGE=172.16.5.222/24
-  HOST_IP=10.3.4.5
-
-#Ejecutar el script de instalación
 $./stack.sh
 #introducir la contraseña cuando lo pida y esperar.
 
+##configurar la estrategia de autentificación de nova
+$sudo gedit /etc/nova/nova.conf
+#añadir la siguiente linea
+auth_strategy=keystone
