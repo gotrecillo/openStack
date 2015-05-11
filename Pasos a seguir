@@ -10,7 +10,23 @@ $cd devstack
 $./stack.sh
 #introducir la contraseña cuando lo pida y esperar.
 
+##Si queremos que no nos pregunte por contraseñas durante la
+##ejecución del script, o configurar las direccioines IP
+##se crea un archivo llamado local.conf en el directorio 
+##de devstack con lo siguiente:
+  #[[local|localrc]]
+  #ADMIN_PASSWORD=secrete
+  #DATABASE_PASSWORD=$ADMIN_PASSWORD
+  #RABBIT_PASSWORD=$ADMIN_PASSWORD
+  #SERVICE_PASSWORD=$ADMIN_PASSWORD
+  #SERVICE_TOKEN=a682f596-76f3-11e3-b3b2-e716f9080d50
+  #FIXED_RANGE=172.31.1.0/24
+  #FLOATING_RANGE=192.168.20.0/25
+  #HOST_IP=10.3.4.5
+
 ##configurar la estrategia de autentificación de nova
 $sudo gedit /etc/nova/nova.conf
 #añadir la siguiente linea
 auth_strategy=keystone
+
+
