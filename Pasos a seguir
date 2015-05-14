@@ -39,3 +39,40 @@ $./stack.sh
 ##Entramos a traves de ssh a la imagen en la nube.
 
 
+####Heroku
+##Instalar ruby
+sudo apt-get install ruby
+
+##Instalar maven3
+sudo apt-get install maven
+
+##Instalamos jdk
+sudo apt-get install openjdk-7-jdk
+
+##Instalar heroku toolbelt
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh 
+
+##logear en heroku
+heroku login
+#user sergio.panadero.perez@gmail.com
+#pass 123456ab
+
+##Descarga y prepara el app
+ git clone https://github.com/heroku/java-getting-started.git
+ cd java-getting-started
+ 
+##Crea la aplicacion en heroku
+ heroku create
+ 
+##Despliega tu codigo
+ git push heroku master
+ 
+##Nos aseguramos que hay una instancia corriendo
+ heroku ps:scale web=1
+
+##Visitamos la app
+ heroku open
+
+
+##Añadimos a pom.xml
+
