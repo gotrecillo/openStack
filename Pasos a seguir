@@ -22,6 +22,7 @@ $git clone https://git.openstack.org/openstack-dev/devstack
 $cd devstack
 $./stack.sh
 
+##Cargamos una imagen
 
 ##Creamos los pares de llave para usar ssh, se descargan en downloads.
 ##S
@@ -29,6 +30,8 @@ $./stack.sh
 ##Obtenemos una ip del rango flotante.
 
 ##Abrimos los puertos
+
+##Lanzamos una instancia de la imagen que cargamos
 
 ##Asignamos la ip a la instancia
 
