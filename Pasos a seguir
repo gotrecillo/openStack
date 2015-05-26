@@ -67,6 +67,31 @@ sudo chmod 600 .ssh/ubuntukey.pem
 ##Entramos a traves de ssh a la imagen en la nube.
 ssh -i .ssh/ubuntukey.pem ubuntu@172.16.5.226
 
+-------------
+
+###OpenShift
+##Instalar ruby y git mientras se enciende la máquina virtual
+$ sudo apt-get install ruby && sudo apt-get install git
+
+##Instalar la gema de rhc
+$ sudo gem install rhc
+
+##Configurar el server
+$ rhc setup --server [IP Máquina Virtual] -l [usuario]
+
+##Crear la app
+$ rhc app create [nombreDeLaApp] -t [lenguaje]
+
+##Modificarla con git
+$ rhc git-clone [nombreDeLaApp]
+
+##Modificar el index.html como queramos y después:
+$ cd ~/[nombreDeLaApp]
+$ git add .
+$ git commit -m "Primer commit"
+$ git push
+
+---------------
 
 ####Heroku
 ##Instalar ruby
