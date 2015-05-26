@@ -10,7 +10,7 @@ $git clone https://git.openstack.org/openstack-dev/devstack
 ##se crea un archivo llamado local.conf en el directorio 
 ##de devstack con lo siguiente:
   [[local|localrc]]
-  ADMIN_PASSWORD=secrete
+  ADMIN_PASSWORD=1
   DATABASE_PASSWORD=$ADMIN_PASSWORD
   RABBIT_PASSWORD=$ADMIN_PASSWORD
   SERVICE_PASSWORD=$ADMIN_PASSWORD
@@ -22,24 +22,50 @@ $git clone https://git.openstack.org/openstack-dev/devstack
 $cd devstack
 $./stack.sh
 
+##Entramos a traves de la aplicacion web
+http://172.16.5.222/
+user = admin
+pass = 1
+
 ##Cargamos una imagen
+admin > images > create image
+image location = http://cloud-images.ubuntu.com/releases/12.04.2/release/ubuntu-12.04-server-cloudimg-amd64-disk1.img
+format QCOW2
+minimun disk 10gb
+minimum ram 1024mb
+copy data
+public
+
 
 ##Creamos los pares de llave para usar ssh, se descargan en downloads.
-##S
+project > access & security > key pairs > create key pair
+nombre = ubuntukey
+se descarga automaticamente
 
 ##Obtenemos una ip del rango flotante.
+project > access & security > floating ips > allocate ip to proyect > public
 
 ##Abrimos los puertos
+project > access & security > security groups > manage rules > add rules
+rule all tcp
+rule all udp
+rule all icmp
 
 ##Lanzamos una instancia de la imagen que cargamos
 
-##Asignamos la ip a la instancia
+project > images > launch instance
+dar nombre y lanzar
 
-##Lanzar la instancia con un cat /etc/passwd para ver en el log que funciona
+##Asignamos la ip a la instancia
+proyect > instances > associate floating ip
 
 ##Movemos la clave al directorio .ssh y le damos permisos 600
+cd
+mv Downloads/ubuntukey.pem .ssh/
+sudo chmod 600 .ssh/ubuntukey.pem
 
 ##Entramos a traves de ssh a la imagen en la nube.
+ssh -i .ssh/ubuntukey.pem ubuntu@172.16.5.226
 
 
 ####Heroku
