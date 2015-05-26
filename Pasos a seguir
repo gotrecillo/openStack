@@ -100,11 +100,11 @@ $git push heroku master
 ##Nos aseguramos que hay una instancia corriendo
 $heroku ps:scale web=1
 
+##Remombramos la app
+$heroku apps:rename devil-farm
+
 ##Visitamos la app
 $heroku open
 
 ##Ver Logs
 $heroku logs --tail
-
-##Añadimos a pom.xml
-
