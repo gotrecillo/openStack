@@ -72,11 +72,12 @@ ssh -i .ssh/ubuntukey.pem ubuntu@172.16.5.226
 ##Instalar ruby
 $sudo apt-get install ruby
 
-##Instalar maven3
-$sudo apt-get install maven
+##Instalar php
+$sudo apt-get install php5
 
-##Instalamos jdk
-$sudo apt-get install openjdk-7-jdk
+##Instalamos composer
+$curl -sS https://getcomposer.org/installer | php
+$sudo mv composer.phar /usr/local/bin/composer
 
 ##Instalar heroku toolbelt
 $wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh 
@@ -87,8 +88,8 @@ $heroku login
 #pass 123456ab
 
 ##Descarga y prepara el app
-$git clone https://github.com/heroku/java-getting-started.git
-$cd java-getting-started
+$git clone https://github.com/gotrecillo/devil-farm-php
+$cd devil-farm-php
  
 ##Crea la aplicacion en heroku
 $heroku create
