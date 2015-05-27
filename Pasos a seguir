@@ -1,3 +1,7 @@
+
+##Presentación Cloud Computing
+http://prezi.com/irhbartloewv/?utm_campaign=share&utm_medium=copy
+
 ##Actualizar el sistema e instalar git
 $sudo apt-get update && sudo apt-get upgrade
 $sudo apt-get install git
